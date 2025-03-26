@@ -1,0 +1,29 @@
+services:
+  springboot-app:
+    build:
+      context: ./hibernateGITHUB
+      dockerfile: Dockerfile 
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/emreDB
+      - SPRING_DATASOURCE_USERNAME=emre
+      - SPRING_DATASOURCE_PASSWORD=1234
+
+  postgres-db:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_DB=emreDB
+      - POSTGRES_USER=emre
+      - POSTGRES_PASSWORD=1234
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres-data:
