@@ -1,6 +1,18 @@
-premier lancement:
+Guide d'utilisation du projet Docker
+
+Prérequis
+
+Assurez-vous d'avoir Docker Desktop installés sur votre machine.
+
+Lancer le projet
+
+Si c'est la première fois que vous lancez le projet utilisez la commande suivante :
 
 docker-compose up --build
+
+pour fermer le projet:
+
+docker-compose down
 
 pour réinitialiser là bd:
 
